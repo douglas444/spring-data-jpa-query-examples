@@ -25,6 +25,7 @@ public class CustomerService_EntityManagerNativeQuery implements CustomerService
                 JOIN `product` p ON o.product_id = p.id
             WHERE
                 p.code = :productCode
+                AND c.active = TRUE
             """;
 
         return this.entityManager.createNativeQuery(query, Customer.class)

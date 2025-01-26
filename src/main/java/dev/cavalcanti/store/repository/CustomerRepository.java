@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long>, JpaSpecificationExecutor<Customer> {
 
-    List<Customer> findAllByOrders_Product_Code(String code);
+    List<Customer> findAllByActiveAndOrders_Product_Code(boolean active, String code);
 
     @Query(value = """
         SELECT
@@ -23,6 +23,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Long>, JpaSp
             JOIN `product` p ON o.product_id = p.id
         WHERE
             p.code = :productCode
+            AND c.active = TRUE
     """, nativeQuery = true)
     List<Customer> findWhoBoughtProductByCode(@Param("productCode") String productCode);
 

@@ -17,6 +17,6 @@ public class CustomerService_SpringDataJpa implements CustomerService {
 
     @Override
     public List<Customer> whoBought(String productCode) {
-        return this.customerRepository.findAllByOrders_Product_Code(productCode);
+        return this.customerRepository.findAllByActiveAndOrders_Product_Code(true, productCode);
     }
 }

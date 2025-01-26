@@ -43,7 +43,7 @@ public class CustomerController {
         return this.customerService_springDataJpa.whoBought(productCode);
     }
 
-    @GetMapping("/spring-data-jpa-criteria/who-bought")
+    @GetMapping("/spring-data-jpa-query/who-bought")
     public List<Customer> springDataJpaQuery(String productCode) {
         return this.customerService_springDataJpaQuery.whoBought(productCode);
     }
