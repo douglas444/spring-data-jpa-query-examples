@@ -14,6 +14,7 @@ public class CustomerService_EntityManagerNativeQuery implements CustomerService
     EntityManager entityManager;
 
     @Override
+    @SuppressWarnings("unchecked")
     public List<Customer> whoBought(String productCode) {
 
         String query = """
